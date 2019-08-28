@@ -1,12 +1,12 @@
 package matc89.exercicio1;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-//import android.widget.Button;
-import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.TextView;
+
+//import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +26,20 @@ public class MainActivity extends AppCompatActivity {
     public void botaoClicado(View v) {
         String nome = et.getText().toString();
         tv.setText("Alô, " + nome + "!");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        outState.putString("texto",tv.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+
+        tv.setText(savedInstanceState.getString("texto"));
     }
 
 }
