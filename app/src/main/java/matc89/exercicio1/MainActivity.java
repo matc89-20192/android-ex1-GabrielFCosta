@@ -31,15 +31,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
-
-        outState.putString("texto",tv.getText().toString());
+        outState.putString("cumprimento",tv.getText().toString());
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
         super.onRestoreInstanceState(savedInstanceState);
-
-        tv.setText(savedInstanceState.getString("texto"));
+        tv.setText(savedInstanceState.getString("cumprimento"));
     }
 
 }
